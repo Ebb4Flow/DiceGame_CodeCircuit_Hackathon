@@ -46,7 +46,7 @@ submitBtn.addEventListener('click', function (e) {
     // Update the header if exists
     const greeting = document.getElementById('greeting');
     if (greeting) {
-        greeting.textContent = `${finalName}, I hope you have tons of fun while playing!`;
+        greeting.textContent = `${finalName}, I hope you have tons of fun while playing!☺️`;
     }
 });
 

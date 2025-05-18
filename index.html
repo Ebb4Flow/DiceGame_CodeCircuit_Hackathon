@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Dice Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/CSS/alert.css">
+    
     <link rel="stylesheet" href="src/CSS/main.css">
+    <link rel="stylesheet" href="src/CSS/alert.css">
+    <link rel="stylesheet" href="src/CSS/Dice.css">
+    <link rel="stylesheet" href="src/CSS/Table.css">
 </head>
 
 <body>
-    <div class="Alert">
+    <div class="Alerta" style="display: none;">
         <form method="post" onsubmit="return false;">
             <h1>What is your name?</h1>
             <input type="text" id="username" name="username" autocomplete="off">
@@ -24,11 +27,75 @@
         <p id="greeting"></p>
     </header>
     <main>
-
+        <table>
+            <tr>
+                <th colspan="4">Scoreboard</th>
+            </tr>
+            <tr>
+                <th>Rules</th>
+                <th>Points</th>
+                <th>Rules</th>
+                <th>Points</th>
+            </tr>
+            <tr>
+                <td>Aces <img class="MiniDiceOne" src="Public/Images/Dice_One.png" alt="Dice Face One"></td>
+                <td></td>
+                <td>Three of a kind</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Twos <img class="MiniDiceTwo" src="Public/Images/Dice_Two.png" alt="Dice Face Two"></td>
+                <td></td>
+                <td>Four of a kind</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Threes <img class="MiniDiceThree" src="Public/Images/Dice_Three.png" alt="Dice Face Three"></td>
+                <td></td>
+                <td>Full House</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Fours <img class="MiniDiceFour" src="Public/Images/Dice_Four.png" alt="Dice Face Four"></td>
+                <td></td>
+                <td>Small Straight</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Fives <img class="MiniDiceFive" src="Public/Images/Dice_Five.png" alt="Dice Face Five"></td>
+                <td></td>
+                <td>Large Straight</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sixes <img class="MiniDiceSix" src="Public/Images/Dice_Six.png" alt="Dice Face Six"></td>
+                <td></td>
+                <td>Yahtzee</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Bonus (35 if >63)</td>
+                <td></td>
+                <td>Chance</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td>Total</td>
+                <td></td>
+            </tr>
+        </table>
+        <div Id="Animations">
+            
+        </div> 
     </main>
-    <footer>
-
+    <footer style="text-align: center; font-size: 0.9rem; padding: 1rem;">
+        Dice icons by delapouite
+        via <a href="https://game-icons.net" target="_blank" rel="noopener noreferrer">game-icons.net</a>, used under <a
+            href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.
     </footer>
+    <script src="src/Javascripts/DarkMode.js"></script>
     <script src="src/Javascripts/alert.js"></script>
     <script src="src/Javascripts/follow-alert.js"></script>
 </body>
