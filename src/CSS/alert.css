@@ -1,7 +1,7 @@
 :root {
-    --primary: #4a90e2;         /* Azul vibrante, accesible */
+    --primary: #4a90e2;
     --primary-dark: #3b78c2;
-    --accent: #fbc02d;          /* Amarillo dorado */
+    --accent: #fbc02d;
     --error: #e53935;
     --white: #ffffff;
     --bg: #f7f9fc;
@@ -138,3 +138,33 @@
     pointer-events: none;
     transition: background 0.2s ease;
 }
+
+/* Custom Alerts through the game */
+.Mini-Alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 14px 24px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px var(--shadow);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 1001;
+    animation: miniFadeInOut 3s ease-in-out forwards;
+    border: 2px solid var(--primary);
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Animation In and Out */
+@keyframes miniFadeInOut {
+    0%   { opacity: 0; transform: translate(-50%, -10px); }
+    10%  { opacity: 1; transform: translate(-50%, 0); }
+    90%  { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -10px); }
+}
+

@@ -92,3 +92,33 @@ img[class^="MiniDice"] {
     font-size: 13px;
   }
 }
+
+/* To see better the results */
+.Results {
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 10px;
+  background-color: #e8f0fe;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid transparent;
+  min-width: 40px;
+  display: inline-block;
+}
+
+.Results:hover:not(.locked) {
+  background-color: #4a90e2;
+  color: #fff;
+  border-color: #3171c8;
+}
+
+.Results.locked {
+  background-color: #daa520;
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
+  border-color: #b58900;
+}

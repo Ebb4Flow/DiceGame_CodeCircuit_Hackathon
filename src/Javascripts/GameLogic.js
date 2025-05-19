@@ -2,14 +2,52 @@ let ThisRound = 1;
 let ThisRoll = 0;
 const MaxRounds = 13;
 const MaxRolls = 3;
+/* Buttons and Alerts */
 const rollButton = document.getElementById("Btn-Roll");
 const rollCountElem = document.querySelector(".Roll_Count");
 const usedCategories = new Set();
 
-// Don't allow more than 3 rolls Per Round
+/* Function to Show Mini alerts */
+function showMiniAlert(alertId) {
+  const alert = document.getElementById(alertId);
+  if (!alert) return;
+
+  alert.style.display = "block";
+
+  /* Reload Animation */
+  alert.classList.remove("Mini-Alert");
+  void alert.offsetWidth;
+  alert.classList.add("Mini-Alert");
+
+  /* Closes if user makes a click outside */
+  function clickOutsideHandler(e) {
+    if (!alert.contains(e.target)) {
+      alert.style.display = "none";
+      document.removeEventListener("click", clickOutsideHandler);
+      alert.removeEventListener("dblclick", doubleClickHandler);
+    }
+  }
+
+  /* The alert won't close automatically, for error while generating it */
+  setTimeout(() => {
+    document.addEventListener("click", clickOutsideHandler);
+  }, 150);
+
+  /* Close only on double-click */
+  function doubleClickHandler() {
+    alert.style.display = "none";
+    document.removeEventListener("click", clickOutsideHandler);
+    alert.removeEventListener("dblclick", doubleClickHandler);
+  }
+
+  alert.addEventListener("dblclick", doubleClickHandler);
+}
+
+
+/*  Don't allow more than 3 rolls Per Round */
 rollButton.addEventListener("click", () => {
   if (ThisRoll >= MaxRolls) {
-    alert("You have used all 3 rolls. Please select a scoring category.");
+    showMiniAlert("Alert-NoRolls");
     return;
   }
 
@@ -18,21 +56,21 @@ rollButton.addEventListener("click", () => {
   updateRollCountUI();
 });
 
-// End of a Round
+/* End of a Round */
 function endRound() {
     if (ThisRound >= MaxRounds) {
-        alert("Game over!");
+        showMiniAlert("alertGameOver");
         return;
     }
   
     ThisRound++;
     ThisRoll = 0;
   
-    //Restore frozen status
+    /* Restore frozen status */
     window.frozen.fill(false);
     document.querySelectorAll(".Dice").forEach(d => d.classList.remove("frozen"));
     
-    //New round set all to 0 except chosen values
+    /* New round set all to 0 except chosen values */
     document.querySelectorAll(".Dice").forEach((die) => {
         die.classList.remove("DiceOne", "DiceTwo", "DiceThree", "DiceFour", "DiceFive", "DiceSix");
         die.classList.remove("show");
@@ -49,17 +87,17 @@ function endRound() {
     
     updateScoreTable();
     updateRollCountUI();
-
-    alert(`Starting round ${ThisRound}`);
+    showMiniAlert("alertNewRound");
 }
 
-// Update count
+/*  Update count */
 function updateRollCountUI() {
     if (rollCountElem) {
         const Score = getScore();
         rollCountElem.textContent = `Round N°${ThisRound} - Roll N°${ThisRoll} - Total Score:${Score}`;
     }
 }
+
 /* Show score on the board*/
 function updateScoreTable() {
     /* Don't keep unselected value */
@@ -103,7 +141,7 @@ function updateScoreTable() {
     
     updateTotalScores();
 }
-
+ /* Calculates all Scores at the same time*/
 function scoreUpper(n) {
     return window.diceValues.filter(v => v === n).reduce((a, b) => a + b, 0);
 }
@@ -154,6 +192,7 @@ function sumDice() {
     return window.diceValues.reduce((a, b) => a + b, 0);
 }
 
+/* Store Points*/
 const scoreFunctions = {
     R_Aces: () => scoreUpper(1),
     R_Twos: () => scoreUpper(2),
@@ -170,7 +209,6 @@ const scoreFunctions = {
     R_Chance: scoreChance
 };
 
-/* Store Points*/
 document.querySelectorAll(".Results").forEach(cell => {
     cell.addEventListener("click", () => {
         const id = cell.id;
@@ -189,6 +227,8 @@ document.querySelectorAll(".Results").forEach(cell => {
     });
 });
 
+
+/* Shows the total scores by columns */
 function updateTotalScores() {
     const upperIds = ["R_Aces", "R_Twos", "R_Threes", "R_Fours", "R_Fives", "R_Sixes"];
     const lowerIds = ["R_ThreeKind", "R_FourKind", "R_FullHouse", "R_SmallStraight", "R_LargeStraight", "R_Yahtzee", "R_Chance"];
@@ -211,6 +251,7 @@ function updateTotalScores() {
     document.getElementById("R_Bonus").textContent = upperTotal >= 63 ? 35 : 0;
 }
 
+/* Calculates the final score while playing */
 function getScore() {
     let total = 0;
 

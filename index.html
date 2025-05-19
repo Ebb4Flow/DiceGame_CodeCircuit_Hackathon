@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- Alert: Name, please -->
     <div class="Alert">
         <form method="post" onsubmit="return false;">
             <h1>What is your name?</h1>
@@ -23,11 +24,31 @@
             <button type="submit" id="SubmitBtn">Submit</button>
         </form>
     </div>
+    <!-- Alert: Game Over -->
+    <div id="Alert-GameOver" class="Mini-Alert" style="display: none;">
+        <h1>Game Over</h1>
+        <p>The game has ended. Thanks for playing!</p>
+    </div>
+
+    <!-- Alert: No More Rolls -->
+    <div id="Alert-NoRolls" class="Mini-Alert" style="display: none;">
+        <h1>No More Rolls</h1>
+        <p>You have used all 3 rolls. Please select a scoring category.</p>
+    </div>
+
+    <!-- Alert: New Round -->
+    <div id="Alert-NewRound" class="Mini-Alert" style="display: none;">
+        <h1>New Round</h1>
+        <p>Starting Round <span id="RoundNumber"></span></p>
+    </div>
+
+    <!-- Header, to show custom message -->
     <header>
         <h1>Welcome, let's play some Yahtzee!</h1>
         <p id="greeting"></p>
     </header>
     <main>
+        <!-- Table to show the score -->
         <table>
             <tr>
                 <th colspan="4">Scoreboard</th>
@@ -119,11 +140,14 @@
                 </td>
             </tr>
         </table>
+        <!-- A div to group the other side together -->
         <div class="Together">
             <div id="Contadores">
-                <button id="Btn-Roll">Mix</button>
+                <button id="Btn-Roll">Start!</button>
                 <p class="Roll_Count"></p>
             </div>
+
+            <!-- Here is were I put and made the Dice Animations -->
             <div id="Animations">
                 <img src="Public/Images/Cup.png" alt="Yathzee cup" id="Cup">
                 <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_1">
@@ -132,9 +156,12 @@
                 <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_4">
                 <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_5">
             </div>
+
+            <!-- The Rules of Yahtzee that the web app uses -->
             <div id="YahtzeeRules">
                 <h2>Yahtzee Rules</h2>
                 <ul>
+                    <li><strong>To save a score, click on the result value.</strong></li>
                     <li><strong>Objective</strong>: Score the most points by rolling five dice up to three times per
                         turn to achieve specific combinations.</li>
                     <li><strong>Turn</strong>: Roll dice up to three times, keeping any dice after each roll. After
@@ -160,10 +187,13 @@
             </div>
         </div>
     </main>
-    <footer style="text-align: center; font-size: 0.9rem; padding: 1rem;">
+    <footer>
         Dice icons by delapouite
-        via <a href="https://game-icons.net" target="_blank" rel="noopener noreferrer">game-icons.net</a>, used under <a
-            href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.
+        via <a href="https://game-icons.net" target="_blank" rel="noopener noreferrer">game-icons.net</a>, used under
+        <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.
+        | View the source on
+        <a href="https://github.com/Ebb4Flow/DiceGame_CodeCircuit_Hackathon" target="_blank"
+            rel="noopener noreferrer">GitHub</a>
     </footer>
     <script src="src/Javascripts/alert.js"></script>
     <script src="src/Javascripts/follow-alert.js"></script>
