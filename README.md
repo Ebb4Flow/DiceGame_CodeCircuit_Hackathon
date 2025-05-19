@@ -36,7 +36,7 @@
 
 <h2>🌐 Play Online</h2>
 <p>
-  <a href="https://dicegame.vercel.app" target="_blank"><b>Play it on Vercel</b></a>
+  <a href="https://dice-game-code-circuit-hackathon.vercel.app/" target="_blank"><b>Play it on Vercel</b></a>
 </p>
 
 <hr>
