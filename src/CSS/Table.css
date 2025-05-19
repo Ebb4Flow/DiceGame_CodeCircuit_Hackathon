@@ -1,8 +1,9 @@
+/* Custom Properties */
 :root {
   --table-bg: #0b3d0b;
   --table-shadow: rgba(0, 0, 0, 0.7);
   --table-radius: 12px;
-  --table-font-size: 1rem;
+  --table-font-size: 16px;
   --table-header-bg: #b3001b;
   --table-header-color: #fff8dc;
   --table-header-shadow: rgba(0, 0, 0, 0.4);
@@ -11,11 +12,13 @@
   --table-cell-muted-color: #ddd;
   --table-font-family: 'Poppins', sans-serif;
   --table-img-shadow: rgba(255, 255, 255, 0.2);
+  --table-border: 2px solid gold;
 }
 
+/* Scoreboard Table */
 table {
   width: 100%;
-  max-width: 850px;
+  max-width: 700px;
   border-collapse: separate;
   border-spacing: 0;
   background-color: var(--table-bg);
@@ -26,22 +29,27 @@ table {
   font-family: var(--table-font-family);
   color: #fff;
   animation: smoothFade 0.6s ease-in;
-  border: 2px solid gold;
+  border: var(--table-border);
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
 }
 
+/* Table Header */
 th {
   background-color: var(--table-header-bg);
   color: var(--table-header-color);
   font-weight: 700;
-  padding: 1rem;
+  padding: 14px;
   text-align: center;
   text-shadow: 1px 1px 2px var(--table-header-shadow);
   letter-spacing: 1px;
   border-bottom: 2px solid gold;
 }
 
+/* Table Cell */
 td {
-  padding: 0.85rem 1rem;
+  padding: 10px 14px;
   text-align: center;
   border-top: 1px solid var(--table-border-color);
   background-color: var(--table-cell-bg);
@@ -49,10 +57,12 @@ td {
   color: #fffbe6;
 }
 
+/* Table Row Hover */
 tr:hover td {
   background-color: rgba(255, 215, 0, 0.12);
 }
 
+/* Specific Table Cells */
 td:first-child,
 td:nth-child(3) {
   text-align: left;
@@ -60,22 +70,25 @@ td:nth-child(3) {
   color: var(--table-cell-muted-color);
 }
 
+/* Mini Dice Images */
 img[class^="MiniDice"] {
-  width: 28px;
+  width: 22px;
   height: auto;
   vertical-align: middle;
-  margin-left: 0.5rem;
+  margin-left: 8px;
   filter: drop-shadow(1px 1px 2px var(--table-img-shadow));
 }
 
+/* Responsive Table (Medium Screens) */
 @media (max-width: 768px) {
   table {
-    font-size: 0.9rem;
+    font-size: 14px;
   }
 }
 
+/* Responsive Table (Small Screens) */
 @media (max-width: 480px) {
   table {
-    font-size: 0.8rem;
+    font-size: 13px;
   }
 }

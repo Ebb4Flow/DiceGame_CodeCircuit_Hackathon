@@ -1,34 +1,39 @@
-/*Tables Dice*/
-.MiniDiceOne, .MiniDiceTwo, .MiniDiceThree, .MiniDiceFour, .MiniDiceFive, .MiniDiceSix{
-    width: 30px;
-    height: 30px;
+/* Shared dice styles */
+.MiniDiceOne, .MiniDiceTwo, .MiniDiceThree, .MiniDiceFour, .MiniDiceFive, .MiniDiceSix,
+.DiceOne, .DiceTwo, .DiceThree, .DiceFour, .DiceFive, .DiceSix {
     border: 1px solid black;
     border-radius: 3px;
-    margin: 8px 6px 6px 8px;
     box-shadow: 2px 2px rgb(117, 117, 117);
 }
 
-/*Dice Main Colors*/
-.MiniDiceOne, .DiceOne{
+/* Mini dice size and spacing */
+.MiniDiceOne, .MiniDiceTwo, .MiniDiceThree, .MiniDiceFour, .MiniDiceFive, .MiniDiceSix {
+    width: 30px;
+    height: 30px;
+    margin: 8px 6px 6px 8px;
+}
+
+/* Dice face colors */
+.MiniDiceOne, .DiceOne {
     background-color: #9E00FF;
 }
 
-.MiniDiceTwo, .DiceTwo{
+.MiniDiceTwo, .DiceTwo {
     background-color: #00CFFD;
 }
 
-.MiniDiceThree, .DiceThree{
+.MiniDiceThree, .DiceThree {
     background-color: #FFD700;
 }
 
-.MiniDiceFour, .DiceFour{
+.MiniDiceFour, .DiceFour {
     background-color: #FF6B00;
 }
 
-.MiniDiceFive,.DiceFive{
+.MiniDiceFive, .DiceFive {
     background-color: #CCCCCC;
 }
 
-.MiniDiceSix, .DiceSix{
+.MiniDiceSix, .DiceSix {
     background-color: #FF00AA;
 }

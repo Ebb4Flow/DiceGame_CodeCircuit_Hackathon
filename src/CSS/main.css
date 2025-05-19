@@ -1,80 +1,218 @@
+/* Custom Properties */
 :root {
-  --accent: #a45ee5;
-  --highlight: #e6c200;
-  --text-main: #333;
-  --text-muted: #666;
+  --color-accent: #a45ee5;
+  --color-highlight: #e6c200;
+  --color-background-gradient-start: rgba(255, 127, 80, 0.25);
+  --color-background-gradient-end: rgba(135, 206, 250, 0.25);
+  --color-text-main: #333;
+  --color-text-muted: #666;
+  --color-shadow-light: rgba(0, 0, 0, 0.1);
+  --font-family-main: 'Poppins', sans-serif;
+  --border-highlight: 3px solid var(--color-highlight);
+  --box-shadow: 0 4px 20px var(--color-shadow-light);
 }
 
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Body */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, rgba(255, 127, 80, 0.25) 0%, rgba(135, 206, 250, 0.25) 100%);
-  color: var(--text-main);
+  font-family: var(--font-family-main);
+  background: linear-gradient(135deg, var(--color-background-gradient-start) 0%, var(--color-background-gradient-end) 100%);
+  color: var(--color-text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* Header */
 header {
   text-align: center;
-  padding: 2.5rem 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid var(--highlight);
+  padding: 40px 16px;
+  box-shadow: var(--box-shadow);
+  border-bottom: var(--border-highlight);
 }
 
+/* Header Title */
 header h1 {
-  font-size: 2.5em;
-  color: var(--accent);
+  font-size: 40px;
+  color: var(--color-accent);
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 
+/* Greeting Text */
 #greeting {
-  font-size: 1.2em;
-  color: var(--highlight);
-  margin-top: 0.75rem;
+  font-size: 19px;
+  color: var(--color-highlight);
+  margin-top: 12px;
   font-weight: 600;
 }
 
+/* Main Content */
 main {
   flex: 1;
-  padding: 3rem 2rem;
+  padding: 48px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  animation: smoothFade 0.6s ease-in;
+  align-items: start;
+}
+
+/* Scoreboard Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 720px;
+}
+
+/* Dice Animations Container */
+#Animations {
   display: flex;
   justify-content: center;
-  align-items: center;
-  animation: smoothFade 0.6s ease-in;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-@keyframes smoothFade {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
+/* Footer */
 footer {
   text-align: center;
-  padding: 1.2rem;
-  font-size: 0.95em;
-  background-color: var(--header-bg);
-  color: var(--text-muted);
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  border-top: 3px solid var(--highlight);
+  padding: 20px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  border-top: var(--border-highlight);
+  box-shadow: 0 -2px 10px var(--color-shadow-light);
 }
 
-/* 📱 Responsive tweaks */
+/* Roll Counter Container */
+#Contadores {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  background: linear-gradient(145deg, #220000, #660000);
+  border: 3px solid gold;
+  border-radius: 12px;
+  box-shadow:
+    0 0 12px 3px rgba(255, 215, 0, 0.75),
+    inset 0 0 25px rgba(255, 215, 0, 0.4);
+  text-align: center;
+  color: #ffda6a;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Roll Button */
+#Btn-Roll {
+  background: linear-gradient(45deg, #b8860b, #ffd700);
+  border: 2px solid #daa520;
+  border-radius: 10px;
+  color: #3b1e00;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 12px 32px;
+  cursor: pointer;
+  box-shadow:
+    0 4px 8px rgba(218, 165, 32, 0.6);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Roll Button Hover */
+#Btn-Roll:hover {
+  background: linear-gradient(45deg, #ffd700, #b8860b);
+  color: #3b1e00;
+  box-shadow:
+    0 0 20px 3px rgba(255, 215, 0, 0.9);
+}
+
+/* Roll Count Text */
+.Roll_Count {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: #ffe87c;
+  text-shadow: 1px 1px 2px #7f5f00;
+}
+
+/* Yahtzee Rules Container */
+#YahtzeeRules {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #220000, #660000);
+  border: 3px solid gold;
+  border-radius: 12px;
+  box-shadow:
+    0 0 12px 3px rgba(255, 215, 0, 0.75),
+    inset 0 0 25px rgba(255, 215, 0, 0.4);
+  text-align: left;
+  color: #ffda6a;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Rules Title */
+#YahtzeeRules h2 {
+  font-size: 24px;
+  color: #a45ee5;
+  text-align: center;
+  margin-bottom: 16px;
+  text-shadow: 1px 1px 2px #7f5f00;
+}
+
+/* Rules List */
+#YahtzeeRules ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Nested Rules List */
+#YahtzeeRules ul ul {
+  padding-left: 20px;
+}
+
+/* Rules List Item */
+#YahtzeeRules li {
+  margin-bottom: 8px;
+}
+
+/* Rules Emphasis */
+#YahtzeeRules strong {
+  color: #ffe87c;
+  text-shadow: 1px 1px 1px #7f5f00;
+}
+
+/* Fade Animation */
+@keyframes smoothFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
+  /* Responsive Header Title */
   header h1 {
-    font-size: 1.8em;
+    font-size: 29px;
   }
 
+  /* Responsive Greeting */
   #greeting {
-    font-size: 1em;
+    font-size: 16px;
   }
 
+  /* Responsive Main */
   main {
-    padding: 2rem 1rem;
+    padding: 32px 16px;
   }
 }

@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Dice Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="src/CSS/main.css">
     <link rel="stylesheet" href="src/CSS/alert.css">
     <link rel="stylesheet" href="src/CSS/Dice.css">
     <link rel="stylesheet" href="src/CSS/Table.css">
+    <link rel="stylesheet" href="src/CSS/Cup.css">
 </head>
 
 <body>
-    <div class="Alerta" style="display: none;">
+    <div class="Alert">
         <form method="post" onsubmit="return false;">
             <h1>What is your name?</h1>
             <input type="text" id="username" name="username" autocomplete="off">
@@ -39,65 +40,135 @@
             </tr>
             <tr>
                 <td>Aces <img class="MiniDiceOne" src="Public/Images/Dice_One.png" alt="Dice Face One"></td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Aces">0</p>
+                </td>
                 <td>Three of a kind</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_ThreeKind">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Twos <img class="MiniDiceTwo" src="Public/Images/Dice_Two.png" alt="Dice Face Two"></td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Twos">0</p>
+                </td>
                 <td>Four of a kind</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_FourKind">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Threes <img class="MiniDiceThree" src="Public/Images/Dice_Three.png" alt="Dice Face Three"></td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Threes">0</p>
+                </td>
                 <td>Full House</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_FullHouse">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Fours <img class="MiniDiceFour" src="Public/Images/Dice_Four.png" alt="Dice Face Four"></td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Fours">0</p>
+                </td>
                 <td>Small Straight</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_SmallStraight">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Fives <img class="MiniDiceFive" src="Public/Images/Dice_Five.png" alt="Dice Face Five"></td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Fives">0</p>
+                </td>
                 <td>Large Straight</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_LargeStraight">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Sixes <img class="MiniDiceSix" src="Public/Images/Dice_Six.png" alt="Dice Face Six"></td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Sixes">0</p>
+                </td>
                 <td>Yahtzee</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Yahtzee">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Bonus (35 if >63)</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Bonus">0</p>
+                </td>
                 <td>Chance</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_Chance">0</p>
+                </td>
             </tr>
             <tr>
                 <td>Total</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_TotalUpper">0</p>
+                </td>
                 <td>Total</td>
-                <td></td>
+                <td>
+                    <p class="Results" id="R_TotalLower">0</p>
+                </td>
             </tr>
         </table>
-        <div Id="Animations">
-            
-        </div> 
+        <div class="Together">
+            <div id="Contadores">
+                <button id="Btn-Roll">Mix</button>
+                <p class="Roll_Count"></p>
+            </div>
+            <div id="Animations">
+                <img src="Public/Images/Cup.png" alt="Yathzee cup" id="Cup">
+                <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_1">
+                <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_2">
+                <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_3">
+                <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_4">
+                <img src="Public/Images/Dice_One.png" alt="Dice 1" class="Dice" id="Dice_5">
+            </div>
+            <div id="YahtzeeRules">
+                <h2>Yahtzee Rules</h2>
+                <ul>
+                    <li><strong>Objective</strong>: Score the most points by rolling five dice up to three times per
+                        turn to achieve specific combinations.</li>
+                    <li><strong>Turn</strong>: Roll dice up to three times, keeping any dice after each roll. After
+                        rolling, choose a scoring category.</li>
+                    <li><strong>Scoring Categories</strong>:
+                        <ul>
+                            <li><strong>Aces to Sixes</strong>: Sum of dice showing 1 to 6 (e.g., Aces = sum of 1s).
+                            </li>
+                            <li><strong>Three/Four of a Kind</strong>: Sum of all dice if 3 or 4 dice show the same
+                                number.</li>
+                            <li><strong>Full House</strong>: 25 points for 3 of one number and 2 of another.</li>
+                            <li><strong>Small/Large Straight</strong>: 30/40 points for 4/5 consecutive numbers (e.g.,
+                                1-2-3-4 or 2-3-4-5-6).</li>
+                            <li><strong>Yahtzee</strong>: 50 points for 5 identical numbers. Additional Yahtzees score
+                                100 bonus points if the Yahtzee box is filled.</li>
+                            <li><strong>Chance</strong>: Sum of all dice (any combination).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Bonus</strong>: 35 points if the total of Aces to Sixes is 63 or more.</li>
+                    <li><strong>Game End</strong>: After 13 rounds (one per category), sum all scores. Highest score
+                        wins.</li>
+                </ul>
+            </div>
+        </div>
     </main>
     <footer style="text-align: center; font-size: 0.9rem; padding: 1rem;">
         Dice icons by delapouite
         via <a href="https://game-icons.net" target="_blank" rel="noopener noreferrer">game-icons.net</a>, used under <a
             href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.
     </footer>
-    <script src="src/Javascripts/DarkMode.js"></script>
     <script src="src/Javascripts/alert.js"></script>
     <script src="src/Javascripts/follow-alert.js"></script>
+    <script src="src/Javascripts/Shake.js"></script>
+    <script src="src/Javascripts/GameLogic.js"></script>
 </body>
 
 </html>
